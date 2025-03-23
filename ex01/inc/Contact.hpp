@@ -1,4 +1,3 @@
-#include <iostream>
 #include <cstring>
 
 class Contact
@@ -9,6 +8,10 @@ class Contact
     std::string _nickname;
     std::string _phone;
     std::string _darkestSecret;
+    void addFirstName(std::string firstName)
+    {
+      (void)firstName;
+    }
 
   public:
     Contact(std::string firstName,
@@ -20,7 +23,8 @@ class Contact
       addFirstName(firstName);
       _lastName = lastName;
       _nickname = nickname;
-      _phone
+      _phone = phone;
+      _darkestSecret = darkestSecret;
     }
     /*
     Destructor:
@@ -28,20 +32,14 @@ class Contact
     */
     ~Contact()
     {
-      delete _firstName;
+      // delete _firstName;
     }
     /*
     addFirstName function
     */
-    void addFirstName(std::string firstName)
-    {
-      _firstName = firstName;
-    }
+    // void addFirstName(std::string firstName)
+    // {
+    //   _firstName = firstName;
+    // }
     
-};
-
-class PhoneBook
-{
-  public:
-    Contact contacts[8];
 };
