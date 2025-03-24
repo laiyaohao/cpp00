@@ -11,9 +11,6 @@ ADD_FOLDER := ${addprefix ${SRC_FOLDER}, /add/}
 ADD_FILENAMES := addContact.cpp
 ADD_FILES := ${addprefix ${ADD_FOLDER}, ${ADD_FILENAMES}}
 
-UTILS_FOLDER := ${addprefix ${SRC_FOLDER}, /utils/}
-UTILS_FILENAMES := checker.cpp notEmpty.cpp storeStuff.cpp
-UTILS_FILES := ${addprefix ${UTILS_FOLDER}, ${UTILS_FILENAMES}}
 SRC := ${MAIN_FILES} ${UTILS_FILES} ${ADD_FILES}
 OBJS := ${SRC:.cpp=.o}
 

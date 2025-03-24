@@ -3,9 +3,9 @@
 #include <cctype>
 #include <ctype.h>
 #include "./Contact.hpp"
-#include "./Phonebook.hpp"
+#include "./PhoneBook.hpp"
 
-void	addContact(void);
+void	addContact(PhoneBook *phonebook);
 
 // utils file functions
 int onlyAlpha(std::string name);

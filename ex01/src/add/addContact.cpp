@@ -1,22 +1,17 @@
 #include "../../inc/main.hpp"
 
 
-void	addContact(void)
+void	addContact(PhoneBook *phonebook)
 {
-	std::string firstName;
-  std::string lastName;
-  std::string nickname;
-  std::string phone;
-  std::string secret;
+  Contact contact;
 
-  storeName(&firstName, "First Name: ");
-  storeName(&lastName, "Last Name: ");
-  storeNoSpace(&nickname, "Nickname: ");
-  storeNumber(&phone);
-  storeNoSpace(&secret, "Darkest Secret: ");
-  std::cout << "first: " << firstName << std::endl; 
-  std::cout << "last: " << lastName << std::endl;
-  std::cout << "nick: " << nickname << std::endl;
-  std::cout << "phone: " << phone << std::endl;
-  std::cout << "secret: " << secret << std::endl;
+  contact.setFirstName();
+  contact.setLastName();
+  contact.setNickname();
+  contact.setNumber();
+  contact.setSecret();
+  std::cout << "Firstname: " << contact.getFirstName() << std::endl;
+  std::cout << "Lastname: " << contact.getLastName() << std::endl;
+  // contact = Contact(firstName, lastName, nickname, phone, secret);
+  phonebook->addContact(contact);
 }

@@ -3,6 +3,7 @@
 int	main(void)
 {
 	std::string command;
+	PhoneBook phonebook;
 
 	while (1)
 	{
@@ -12,10 +13,11 @@ int	main(void)
 		if (command == "EXIT")
 			break;
 		else if (command == "ADD")
-			addContact();
+			addContact(&phonebook);
 		else if (command == "SEARCH")
-			std::cout << "SEARCFESDFS" << std::endl;
+			phonebook.showAll();
+		else
+			std::cout << "APPLICABLE COMMANDS: ADD, SEARCH, EXIT" << std::endl;
 	}
-	// command is EXIT, need to free memory and exit properly.
 	return (0);
 }
