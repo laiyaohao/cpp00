@@ -1,4 +1,4 @@
-#include "../../inc/main.hpp"
+#include "./main.hpp"
 
 int	main(void)
 {
@@ -15,16 +15,20 @@ int	main(void)
 			if (command == "EXIT")
 				break;
 			else if (command == "ADD")
-				addContact(&phonebook);
+				phonebook.addContact();
 			else if (command == "SEARCH")
 				phonebook.showAll();
 			else
 				std::cout << "APPLICABLE COMMANDS: ADD, SEARCH, EXIT" << std::endl;
 		}
-		else
+		else if (std::cin.eof())
 		{
+			std::cout << "eof??" << std::endl;
+			std::cin.clear();
+			std::cin.clear();
+			std::cin.ignore();
 			std::cout << std::endl;
-			break;
+			// break;
 		}
 	}
 	return (0);

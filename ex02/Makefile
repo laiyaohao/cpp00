@@ -1,7 +1,7 @@
 NAME := phonebook
 CC := g++
 CFLAGS := -Wall -Werror -Wextra -std=c++98
-SRC := main.cpp PhoneBook.cpp Contact.cpp
+SRC := tests.cpp Account.cpp
 OBJS := ${SRC:.cpp=.o}
 
 all: ${NAME}

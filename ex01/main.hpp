@@ -8,4 +8,3 @@
 #include "./Contact.hpp"
 #include "./PhoneBook.hpp"
 
-void	addContact(PhoneBook *phonebook);
