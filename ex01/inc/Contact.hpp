@@ -1,4 +1,5 @@
 #include <cstring>
+#include <iomanip>
 
 class Contact
 {
@@ -83,11 +84,18 @@ class Contact
       while (1)
       {
         std::cout << "First Name: ";
-        std::getline(std::cin, input);
-        if (notEmpty(input) && onlyAlpha(input))
-          break;
+        if (std::getline(std::cin, input))
+        {
+          if (notEmpty(input) && onlyAlpha(input))
+            break;
+          else
+            std::cout << "First name cannot be empty and must contain only alphabets :)" << std::endl;
+        }
         else
-          std::cout << "First name cannot be empty and must contain only alphabets :)" << std::endl;
+        {
+          std::cout << std::endl;
+          break;
+        }
       }
       _firstName = input;
     }
@@ -104,11 +112,18 @@ class Contact
       while (1)
       {
         std::cout << "Last Name: ";
-        std::getline(std::cin, input);
-        if (notEmpty(input) && onlyAlpha(input))
-          break;
+        if (std::getline(std::cin, input))
+        {
+          if (notEmpty(input) && onlyAlpha(input))
+            break;
+          else
+            std::cout << "Last name cannot be empty and must contain only alphabets :)" << std::endl;
+        }
         else
-          std::cout << "Last name cannot be empty and must contain only alphabets :)" << std::endl;
+        {
+          std::cout << std::endl;
+          break;
+        }
       }
       _lastName = input;
     }
@@ -125,11 +140,18 @@ class Contact
       while (1)
       {
         std::cout << "Nickname: ";
-        std::getline(std::cin, input);
-        if (notEmpty(input))
-          break;
+        if (std::getline(std::cin, input))
+        {
+          if (notEmpty(input))
+            break;
+          else
+            std::cout << "Maybe you can ask Nick for his nickname?" << std::endl;
+        }
         else
-          std::cout << "Maybe you can ask Nick for his nickname?" << std::endl;
+        {
+          std::cout << std::endl;
+          break;
+        }
       }
       _nickname = input;
     }
@@ -146,11 +168,18 @@ class Contact
       while (1)
       {
         std::cout << "Phone Number: ";
-        std::getline(std::cin, input);
-        if (notEmpty(input) && onlyNumber(input))
-          break;
+        if (std::getline(std::cin, input))
+        {
+          if (notEmpty(input) && onlyNumber(input))
+            break;
+          else
+            std::cout << "Number cannot be empty and must contain only numbers :)" << std::endl;
+        }
         else
-          std::cout << "Number cannot be empty and must contain only numbers :)" << std::endl;
+        {
+          std::cout << std::endl;
+          break;
+        }
       }
       _phone = input;
     }
@@ -167,11 +196,18 @@ class Contact
       while (1)
       {
         std::cout << "Darkest Secret: ";
-        std::getline(std::cin, input);
-        if (notEmpty(input))
-          break;
+        if (std::getline(std::cin, input))
+        {
+          if (notEmpty(input))
+            break;
+          else
+            std::cout << "You should have some secret that you wanna share~~" << std::endl;
+        }
         else
-          std::cout << "You should have some secret that you wanna share~~" << std::endl;
+        {
+          std::cout << std::endl;
+          break;
+        }
       }
       _darkestSecret = input;
     }
@@ -183,5 +219,14 @@ class Contact
       std::cout << "nick: " << getNickname() << std::endl;
       std::cout << "num: " << getNumber() << std::endl;
       std::cout << "secret: " << getSecret() << std::endl;
+    }
+
+    void  printNames()
+    {
+      // need to make sure if more than 10 chars, it will be truncated
+      // and . will be the last char
+      std::cout << std::right << std::setw(10) << getFirstName() << "|";
+      std::cout << std::right << std::setw(10) << getLastName() << "|";
+      std::cout << std::right << std::setw(10) << getNickname();
     }
 };
