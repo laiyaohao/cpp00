@@ -12,6 +12,11 @@ int Account::_totalNbWithdrawals = 0;
 Account::Account(int initial_deposit)
 {
   Account::_amount = initial_deposit;
+  Account::_accountIndex = Account::_nbAccounts;
+  Account::_nbAccounts++;
+  Account::_totalAmount += initial_deposit;
+  Account::_displayTimestamp();
+  std::cout << "index:" << Account::_accountIndex << ";amount:" << Account::_amount << ";created" << std::endl;
 }
 
 int Account::getNbAccounts(void)
@@ -49,13 +54,18 @@ void  Account::_displayTimestamp(void)
       << std::setw(2) << std::setfill('0') << localTime->tm_min         // Minutes
       << std::setw(2) << std::setfill('0') << localTime->tm_sec         // Seconds
       << "]";
-  std::cout << oss.str() << std::endl;
+  std::cout << oss.str();
 }
 
 void  Account::displayAccountsInfos()
 {
   // display time, which idk how to do yet
   Account::_displayTimestamp();
+}
+
+int Account::checkAmount(void) const
+{
+  return (Account::_amount);
 }
 
 Account::~Account(void)
