@@ -15,7 +15,7 @@ fclean: clean
 re: fclean all
 
 ${NAME}: ${OBJS}
-	${CC} ${CFLAGS} ${OBJS} -lreadline -o $@
+	${CC} ${CFLAGS} ${OBJS} -o $@
 
 %.o: %.cpp
 	${CC} ${CFLAGS} -c $< -o $@

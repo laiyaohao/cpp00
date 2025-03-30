@@ -1,5 +1,4 @@
 #include "./Contact.hpp"
-#include <readline/readline.h>
 
 int Contact::notEmpty(std::string input)
 {
@@ -72,22 +71,25 @@ std::string Contact::getFirstName()
 
 void  Contact::setFirstName()
 {
-  char  *input_c;
+  std::string input;
   
   while (1)
   {
-    input_c = readline("First Name: ");
-    if (input_c == NULL)
-      continue;
-    std::string input(input_c);
-    if (notEmpty(input) && onlyAlpha(input))
+    std::cout << "First Name: ";
+    if (std::getline(std::cin, input))
     {
-      Contact::_firstName = input;
-      break;
+      if (notEmpty(input) && onlyAlpha(input))
+        break;
+      else
+        std::cout << "First name cannot be empty and must contain only alphabets :)" << std::endl;
     }
     else
-      std::cout << "First name cannot be empty and must contain only alphabets :)" << std::endl;
+    {
+      std::cout << std::endl;
+      break;
+    }
   }
+  Contact::_firstName = input;
 }
 
 std::string Contact::getLastName()
@@ -97,22 +99,25 @@ std::string Contact::getLastName()
 
 void  Contact::setLastName()
 {
-  char  *input_c;
+  std::string input;
   
   while (1)
   {
-    input_c = readline("Last Name: ");
-    if (input_c == NULL)
-      continue;
-    std::string input(input_c);
-    if (notEmpty(input) && onlyAlpha(input))
+    std::cout << "Last Name: ";
+    if (std::getline(std::cin, input))
     {
-      Contact::_lastName = input;
-      break;
+      if (notEmpty(input) && onlyAlpha(input))
+        break;
+      else
+        std::cout << "Last name cannot be empty and must contain only alphabets :)" << std::endl;
     }
     else
-      std::cout << "Last name cannot be empty and must contain only alphabets :)" << std::endl;
+    {
+      std::cout << std::endl;
+      break;
+    }
   }
+  Contact::_lastName = input;
 }
 
 std::string Contact::getNickname()
@@ -122,22 +127,25 @@ std::string Contact::getNickname()
 
 void  Contact::setNickname()
 {
-  char  *input_c;
+  std::string input;
   
   while (1)
   {
-    input_c = readline("Nickname: ");
-    if (input_c == NULL)
-      continue;
-    std::string input(input_c);
-    if (notEmpty(input))
+    std::cout << "Nickname: ";
+    if (std::getline(std::cin, input))
     {
-      Contact::_nickname = input;
-      break;
+      if (notEmpty(input))
+        break;
+      else
+        std::cout << "Maybe you can ask Nick for his nickname?" << std::endl;
     }
     else
-      std::cout << "Maybe you can ask Nick for his nickname?" << std::endl;
+    {
+      std::cout << std::endl;
+      break;
+    }
   }
+  Contact::_nickname = input;
 }
 
 std::string Contact::getNumber()
@@ -147,22 +155,25 @@ std::string Contact::getNumber()
 
 void  Contact::setNumber()
 {
-  char  *input_c;
+  std::string input;
   
   while (1)
   {
-    input_c = readline("Phone Number: ");
-    if (input_c == NULL)
-      continue;
-    std::string input(input_c);
-    if (notEmpty(input) && onlyNumber(input))
+    std::cout << "Phone Number: ";
+    if (std::getline(std::cin, input))
     {
-      Contact::_phone = input;
-      break;
+      if (notEmpty(input) && onlyNumber(input))
+        break;
+      else
+        std::cout << "Number cannot be empty and must contain only numbers :)" << std::endl;
     }
     else
-      std::cout << "Number cannot be empty and must contain only numbers :)" << std::endl;
+    {
+      std::cout << std::endl;
+      break;
+    }
   }
+  Contact::_phone = input;
 }
 
 std::string  Contact::getSecret()
@@ -172,23 +183,25 @@ std::string  Contact::getSecret()
 
 void  Contact::setSecret()
 {
-  char  *input_c;
+  std::string input;
   
   while (1)
   {
-    input_c = readline("Darkest Secret: ");
-    if (input_c == NULL)
-      continue;
-    std::string input(input_c);
-    if (notEmpty(input))
+    std::cout << "Darkest Secret: ";
+    if (std::getline(std::cin, input))
     {
-      Contact::_darkestSecret = input;
-      break;
+      if (notEmpty(input))
+        break;
+      else
+        std::cout << "You should have some secret that you wanna share~~" << std::endl;
     }
     else
-      std::cout << "You should have some secret that you wanna share~~" << std::endl;
-    
+    {
+      std::cout << std::endl;
+      break;
+    }
   }
+  Contact::_darkestSecret = input;
 }
 
 void  Contact::showAll()

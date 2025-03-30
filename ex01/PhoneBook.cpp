@@ -1,6 +1,5 @@
 
 #include "PhoneBook.hpp"
-#include <readline/readline.h>
 
 PhoneBook::PhoneBook()
 {
@@ -73,7 +72,7 @@ void  PhoneBook::addContact()
 
 void  PhoneBook::showAll()
 {
-  char  *ind_c;
+  std::string ind;
 
   printTable();
   while (1)
@@ -83,19 +82,24 @@ void  PhoneBook::showAll()
       std::cout << "Phonebook is empty :(" << std::endl;
       break;
     }
-    ind_c = readline("Which index? ");
-    if (ind_c == NULL)
-      continue;
-    std::string ind(ind_c);
-    if (onlyNumber(ind) &&
-      0 <= std::atoi(ind.c_str()) &&
-      std::atoi(ind.c_str()) < 8 &&
-      std::atoi(ind.c_str()) <= ((count - 1) > 8 ? 8 : (count - 1)))
+    std::cout << "Which index?" << std::endl;
+    if (std::getline(std::cin, ind))
     {
-      contact[std::atoi(ind.c_str())].showAll();
-      break;
+      if (onlyNumber(ind) &&
+        0 <= std::atoi(ind.c_str()) &&
+        std::atoi(ind.c_str()) < 8 &&
+        std::atoi(ind.c_str()) <= ((count - 1) > 8 ? 8 : (count - 1)))
+      {
+        contact[std::atoi(ind.c_str())].showAll();
+        break;
+      }
+      else
+        std::cout << "Please select a relevant index :)" << std::endl;
     }
     else
-      std::cout << "Please select a relevant index :)" << std::endl;
+    {
+      std::cout << std::endl;
+      break;
+    }
   }
 }
