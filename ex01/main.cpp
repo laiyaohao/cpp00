@@ -23,12 +23,8 @@ int	main(void)
 		}
 		else if (std::cin.eof())
 		{
-			std::cout << "eof??" << std::endl;
-			std::cin.clear();
-			std::cin.clear();
-			std::cin.ignore();
 			std::cout << std::endl;
-			// break;
+			break;
 		}
 	}
 	return (0);
