@@ -1,4 +1,4 @@
-NAME := account
+NAME := phonebook
 CC := g++
 CFLAGS := -Wall -Werror -Wextra -std=c++98
 SRC := tests.cpp Account.cpp
