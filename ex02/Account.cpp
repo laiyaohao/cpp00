@@ -44,17 +44,17 @@ int Account::getTotalAmount(void)
 void  Account::_displayTimestamp(void)
 {
   std::ostringstream oss;
-  std::time_t now = std::time(0);         // Get current time
-  std::tm* localTime = std::localtime(&now); // Convert to local time
+  std::time_t now = std::time(0);
+  std::tm* localTime = std::localtime(&now);
 
   oss << "[" 
-      << (localTime->tm_year + 1900)     // Year (tm_year is years since 1900)
-      << std::setw(2) << std::setfill('0') << (localTime->tm_mon + 1)   // Month (tm_mon is 0-based)
-      << std::setw(2) << std::setfill('0') << localTime->tm_mday        // Day
+      << (localTime->tm_year + 1900)
+      << std::setw(2) << std::setfill('0') << (localTime->tm_mon + 1)
+      << std::setw(2) << std::setfill('0') << localTime->tm_mday
       << "_"
-      << std::setw(2) << std::setfill('0') << localTime->tm_hour        // Hours
-      << std::setw(2) << std::setfill('0') << localTime->tm_min         // Minutes
-      << std::setw(2) << std::setfill('0') << localTime->tm_sec         // Seconds
+      << std::setw(2) << std::setfill('0') << localTime->tm_hour
+      << std::setw(2) << std::setfill('0') << localTime->tm_min
+      << std::setw(2) << std::setfill('0') << localTime->tm_sec
       << "]";
   std::cout << oss.str();
 }
