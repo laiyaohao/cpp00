@@ -1,11 +1,5 @@
 #include <iostream>
-
-int	is_lower(char c)
-{
-	if (c >= 'a' && c <= 'z')
-		return (1);
-	return (0);
-}
+#include <cctype>
 
 int	main(int argc, char **argv)
 {
@@ -22,7 +16,7 @@ int	main(int argc, char **argv)
 			j = 0;
 			while (argv[i][j] != '\0')
 			{
-				if (is_lower(argv[i][j]))
+				if (islower(argv[i][j]))
 					std::cout << (char)(argv[i][j] - 32);
 				else
 					std::cout << argv[i][j];
