@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 			while (argv[i][j] != '\0')
 			{
 				if (islower(argv[i][j]))
-					std::cout << (char)(argv[i][j] - 32);
+					std::cout << (char)toupper(argv[i][j]);
 				else
 					std::cout << argv[i][j];
 				j++;
